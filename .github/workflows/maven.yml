@@ -1,4 +1,4 @@
-name: Unit Tests
+name: Java CI with Integration Tests
 
 on:
   push:
@@ -23,3 +23,5 @@ jobs:
 
       - name: Run unit tests
         run: mvn -B test
+      - name: Run integration tests
+        run: mvn -B verify
