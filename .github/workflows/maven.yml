@@ -46,6 +46,7 @@ jobs:
       - name: Run Integration Tests with Jacoco
         run: mvn verify -Pintegration-tests
 
+
       - name: Upload Jacoco Integration Test Report
         uses: actions/upload-artifact@v3
         with:
