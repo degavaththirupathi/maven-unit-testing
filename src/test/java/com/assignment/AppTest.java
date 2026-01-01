@@ -1,13 +1,13 @@
 package com.assignment;
 
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
-public class AppTest {
+class AppTest {
 
     @Test
-    void testSum() {
-        int result = 2 + 3;
-        assertEquals(5, result);
+    void add_shouldReturnSum() {
+        App c = new App();
+        assertEquals(5, c.add(2, 3));
     }
 }
