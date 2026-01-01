@@ -16,8 +16,6 @@
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
     </properties>
-
-    <!-- 📌 Dependencies -->
     <dependencies>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
@@ -26,10 +24,9 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
-
-    <!-- 📌 Build plugins -->
     <build>
         <plugins>
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
@@ -38,6 +35,7 @@
                     <useModulePath>false</useModulePath>
                 </configuration>
             </plugin>
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-failsafe-plugin</artifactId>
@@ -55,16 +53,13 @@
                         </goals>
                     </execution>
                 </executions>
-
             </plugin>
+
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
                 <version>0.8.11</version>
-
                 <executions>
-
-                    <!-- Attach JaCoCo agent while running tests -->
                     <execution>
                         <id>prepare-agent</id>
                         <goals>
@@ -72,7 +67,6 @@
                         </goals>
                     </execution>
 
-                    <!-- Generate HTML + XML coverage reports -->
                     <execution>
                         <id>report</id>
                         <phase>verify</phase>
@@ -80,8 +74,21 @@
                             <goal>report</goal>
                         </goals>
                     </execution>
-
                 </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.3.0</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                            <mainClass>com.assignment.App</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
             </plugin>
 
         </plugins>
